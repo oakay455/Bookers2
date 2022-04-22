@@ -1,4 +1,7 @@
-<h2>Editing Book</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<h1>Editing Book</h1>
 <% if @book.errors.any? %>
  <%= @book.errors.count %>errors prohibited this book from being saved:
  <ul>
@@ -9,24 +12,24 @@
   <% end %>
 
 <%= form_with model:@book,url:book_path(@book.id),method: :patch do |f| %>
-
-<div class="new-book-text">
- <div class="new-book-box">
+<div class="form-group">
   <p>Title</p>
   <%= f.text_field :title %>
  </div>
-<div class="new-book-text">
- <div class="new-book-box">
+<div class="form-group">
  <p>Opinion</p>
  <%= f.text_area :body %>
 </div>
-</div>
-<div><%= f.submit 'Update Book' %></div>
-<% end %>
-</div>
-
-<div class="edit-link">
- <%= link_to 'Show', book_path(@book.id) %>
- |
- <%= link_to 'Back', books_path %>
+<div class="form-group">
+ <%= f.submit 'Update Book',class:"btn btn-success" %>
  </div>
+<% end %>
+
+<div class="form-group">
+ <%= link_to "Show", book_path(@book.id) %>
+ |
+ <%= link_to "Back", books_path %>
+ </div>
+ </div>
+</div>
+</div>
